@@ -1,0 +1,4 @@
+flarum-ext-feedback:
+  admin:
+    contactmail: Mail for manual feedback
+    contactdesc: This is used if the normal submission fail.
