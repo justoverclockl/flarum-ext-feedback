@@ -112,11 +112,11 @@ var require;var require;!function (t) {
   if (true) module.exports = t();else {}
 }(function () {
   return function t(e, n, o) {
-    function i(r, d) {
+    function i(r, c) {
       if (!n[r]) {
         if (!e[r]) {
-          var c = "function" == typeof require && require;
-          if (!d && c) return require(r, !0);
+          var d = "function" == typeof require && require;
+          if (!c && d) return require(r, !0);
           if (a) return a(r, !0);
           var s = new Error("Cannot find module '" + r + "'");
           throw s.code = "MODULE_NOT_FOUND", s;
@@ -143,6 +143,53 @@ var require;var require;!function (t) {
       "use strict";
 
       function o(t, e) {
+        return function (t) {
+          if (Array.isArray(t)) return t;
+        }(t) || function (t, e) {
+          if ("undefined" == typeof Symbol || !(Symbol.iterator in Object(t))) return;
+          var n = [],
+              o = !0,
+              i = !1,
+              a = void 0;
+
+          try {
+            for (var r, c = t[Symbol.iterator](); !(o = (r = c.next()).done) && (n.push(r.value), !e || n.length !== e); o = !0) {
+              ;
+            }
+          } catch (t) {
+            i = !0, a = t;
+          } finally {
+            try {
+              o || null == c["return"] || c["return"]();
+            } finally {
+              if (i) throw a;
+            }
+          }
+
+          return n;
+        }(t, e) || function (t, e) {
+          if (!t) return;
+          if ("string" == typeof t) return i(t, e);
+          var n = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === n && t.constructor && (n = t.constructor.name);
+          if ("Map" === n || "Set" === n) return Array.from(t);
+          if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return i(t, e);
+        }(t, e) || function () {
+          throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+        }();
+      }
+
+      function i(t, e) {
+        (null == e || e > t.length) && (e = t.length);
+
+        for (var n = 0, o = new Array(e); n < e; n++) {
+          o[n] = t[n];
+        }
+
+        return o;
+      }
+
+      function a(t, e) {
         for (var n = 0; n < e.length; n++) {
           var o = e[n];
           o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(t, o.key, o);
@@ -152,148 +199,180 @@ var require;var require;!function (t) {
       Object.defineProperty(n, "__esModule", {
         value: !0
       }), n["default"] = n.IS_BROWSER = void 0;
-      var i = "undefined" != typeof window;
-      n.IS_BROWSER = i;
+      var r = "undefined" != typeof window;
+      n.IS_BROWSER = r;
 
-      var a = function () {
+      var c = function () {
         function t(e) {
           if (function (t, e) {
             if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
-          }(this, t), i) {
-            e = Object.assign({}, {
+          }(this, t), r) {
+            this.options = Object.assign({}, {
               id: "feedback",
               endpoint: "",
+              events: !1,
               emailField: !1,
+              forceShowButton: !1,
               btnTitle: "Feedback",
               title: "Feedback",
               contactText: "Want to chat?",
               contactLink: "",
               typeMessage: "What feedback do you have?",
               success: "Thanks! 👊",
+              inputPlaceholder: "Your feedback goes here!",
+              submitText: "Submit",
+              backText: "Back",
               failedTitle: "Oops, an error ocurred!",
               failedMessage: "Please try again. If this keeps happening, try to send an email instead.",
               position: "right",
               primary: "rgb(53, 222, 118)",
               background: "#fff",
-              color: "#000"
-            }, e), this.options = e;
+              color: "#000",
+              types: {
+                general: {
+                  text: "General Feedback",
+                  icon: "😁"
+                },
+                idea: {
+                  text: "I have an idea",
+                  icon: "💡"
+                },
+                bug: {
+                  text: "I found an issue",
+                  icon: "🐞"
+                }
+              }
+            }, e);
+            var n = document.createElement("div");
+            n.id = "feedback-root", document.body.insertBefore(n, document.body.firstChild), this.root = n;
+            var o = document.createComment("feedback-js modal code");
+            document.body.insertBefore(o, document.body.firstChild), this._addStyle();
           } else console.warn("Detected environment without a `window` object");
         }
 
-        var e, n, a;
+        var e, n, i;
         return e = t, (n = [{
-          key: "_renderButton",
+          key: "renderButton",
           value: function value() {
             var t = this;
 
             if (this.root) {
+              this.showDefaultBtn = !0;
               var e = '\n\t\t\t<div class="feedback-btn-wrapper">\n\t\t\t\t<button id="feedback-btn" title="Give feedback">\n\t\t\t\t\t<svg class="inline w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>\n\t\t\t\t\t<span>'.concat(this.options.btnTitle, "</span>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t");
               this.root.innerHTML = e, document.getElementById("feedback-btn").addEventListener("click", function () {
-                t._renderView();
+                t.renderModal();
               });
             }
           }
         }, {
-          key: "_renderView",
+          key: "renderModal",
           value: function value() {
             var t = this;
 
             if (this.root) {
-              var e = '\n\t\t\t<div class="feedback-wrapper">\n\t\t\t\t<div class="feedback-main">\n\t\t\t\t\t<div class="feedback-header">\n\t\t\t\t\t\t<p>'.concat(this.options.title, "</p>\n\t\t\t\t\t\t").concat(this.options.contactLink.length > 0 ? "<a href=" + this.options.contactLink + ">" + this.options.contactText + "</a>" : "", '\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="feedback-content">\n\t\t\t\t\t\t<p>').concat(this.options.typeMessage, '</p>\n\t\t\t\t\t\t<div class="feedback-content-list">\n\t\t\t\t\t\t\t<button id="feedback-general" class="feedback-item">\n\t\t\t\t\t\t\t\t<span>😁</span>\n\t\t\t\t\t\t\t\tGeneral feedback\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button id="feedback-idea" class="feedback-item">\n\t\t\t\t\t\t\t\t<span>💡</span>\n\t\t\t\t\t\t\t\tI have an idea\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button id="feedback-issue" class="feedback-item">\n\t\t\t\t\t\t\t\t<span>🐞</span>\n\t\t\t\t\t\t\t\tI found an issue\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="feedback-close">\n\t\t\t\t\t<button id="feedback-close">\n\t\t\t\t\t\t<svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
+              var e = '\n\t\t\t<div class="feedback-wrapper">\n\t\t\t\t<div class="feedback-main">\n\t\t\t\t\t<div class="feedback-header">\n\t\t\t\t\t\t<p>'.concat(this.options.title, "</p>\n\t\t\t\t\t\t").concat(this.options.contactLink.length > 0 ? "<a href=" + this.options.contactLink + ">" + this.options.contactText + "</a>" : "", '\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="feedback-content">\n\t\t\t\t\t\t<p>').concat(this.options.typeMessage, '</p>\n\t\t\t\t\t\t<div class="feedback-content-list">\n\t\t\t\t\t\t\t').concat(Object.entries(this.options.types).reduce(function (t, e) {
+                var n = o(e, 2),
+                    i = n[0],
+                    a = n[1];
+                return t + '<button id="feedback-item-'.concat(i, '" class="feedback-item"><span>').concat(a.icon, "</span>").concat(a.text, "</button>");
+              }, ""), '\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="feedback-close">\n\t\t\t\t\t<button id="feedback-close">\n\t\t\t\t\t\t<svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
               this.root.innerHTML = e, document.getElementById("feedback-close").addEventListener("click", function () {
-                t._renderButton();
-              }), document.getElementById("feedback-general").addEventListener("click", function () {
-                t._renderForm("general", "😁 General feedback", "Your feedback goes here!");
-              }), document.getElementById("feedback-idea").addEventListener("click", function () {
-                t._renderForm("idea", "💡 I have an idea", "Tell me all about it!");
-              }), document.getElementById("feedback-issue").addEventListener("click", function () {
-                t._renderForm("issue", "🐞 I found an issue", "What happened?");
+                t.closeModal();
+              }), Object.keys(this.options.types).forEach(function (e) {
+                document.getElementById("feedback-item-".concat(e)).onclick = function () {
+                  t.renderForm(e);
+                };
               });
             }
           }
         }, {
-          key: "_renderForm",
-          value: function value(t, e, n) {
-            var o = this;
+          key: "renderForm",
+          value: function value(t) {
+            var e = this;
 
             if (this.root) {
-              var i = '\n\t\t\t<div class="feedback-wrapper">\n\t\t\t\t<div class="feedback-main">\n\t\t\t\t\t<div class="feedback-header">\n\t\t\t\t\t\t<p>'.concat(e, '</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="feedback-content">\n\t\t\t\t\t\t\t').concat(this.options.emailField ? '<input id="feedback-email" type="email" name="email" placeholder="Email address (optional)">' : "", '\n\t\t\t\t\t\t\t<textarea id="feedback-message" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="').concat(n, '"></textarea>\n\t\t\t\t\t\t\t<div id="feedback-actions" class="feedback-actions">\n\t\t\t\t\t\t\t\t<button type="button" id="feedback-back">Back</button>\n\t\t\t\t\t\t\t\t<button type="submit" id="feedback-submit">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="feedback-close">\n\t\t\t\t\t<button id="feedback-close">\n\t\t\t\t\t\t<svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
-              this.current = t, this.root.innerHTML = i, document.getElementById("feedback-message").focus(), document.getElementById("feedback-close").addEventListener("click", function () {
-                o._renderButton();
+              var n = this.options.types[t],
+                  o = '\n\t\t\t<div class="feedback-wrapper">\n\t\t\t\t<div class="feedback-main">\n\t\t\t\t\t<div class="feedback-header">\n\t\t\t\t\t\t<p>'.concat(n.icon, " ").concat(n.text, '</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="feedback-content">\n\t\t\t\t\t\t\t').concat(this.options.emailField ? '<input id="feedback-email" type="email" name="email" placeholder="Email address (optional)">' : "", '\n\t\t\t\t\t\t\t<textarea id="feedback-message" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="').concat(this.options.inputPlaceholder, '"></textarea>\n\t\t\t\t\t\t\t<div id="feedback-actions" class="feedback-actions">\n\t\t\t\t\t\t\t\t<button type="button" id="feedback-back">').concat(this.options.backText, '</button>\n\t\t\t\t\t\t\t\t<button type="submit" id="feedback-submit">').concat(this.options.submitText, '</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="feedback-close">\n\t\t\t\t\t<button id="feedback-close">\n\t\t\t\t\t\t<svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
+              this.current = t, this.root.innerHTML = o, document.getElementById("feedback-message").focus(), document.getElementById("feedback-close").addEventListener("click", function () {
+                e.closeModal();
               }), document.getElementById("feedback-back").addEventListener("click", function () {
-                o._renderView();
+                e.renderModal();
               }), document.getElementById("feedback-submit").addEventListener("click", function () {
-                var t = document.getElementById("feedback-message").value,
-                    e = o.options.emailField ? document.getElementById("feedback-email").value : "";
-                o.send(o.current, t, window.location.href, e.length > 0 ? e : void 0);
+                e.submitForm();
               });
             }
           }
         }, {
-          key: "_renderLoading",
+          key: "closeModal",
+          value: function value() {
+            this.root.innerHTML = "", this.showDefaultBtn && this.renderButton();
+          }
+        }, {
+          key: "submitForm",
+          value: function value() {
+            var t = document.getElementById("feedback-message").value,
+                e = this.options.emailField ? document.getElementById("feedback-email").value : void 0,
+                n = {
+              id: this.options.id,
+              email: e,
+              feedbackType: this.current,
+              url: window.location.href,
+              message: t
+            };
+
+            if (this.options.events) {
+              var o = new CustomEvent("feedback-submit", {
+                detail: n
+              });
+              return window.dispatchEvent(o), void this.renderSuccess();
+            }
+
+            this.sendToEndpoint(n);
+          }
+        }, {
+          key: "sendToEndpoint",
+          value: function value(t) {
+            var e = this;
+            this.renderLoading();
+            var n = new XMLHttpRequest();
+            n.open("POST", this.options.endpoint), n.setRequestHeader("Content-type", "application/json"), n.send(JSON.stringify(t)), n.onreadystatechange = function () {
+              if (4 === n.readyState) {
+                if (200 === n.status) return e.renderSuccess();
+                e.renderFailed();
+              }
+            };
+          }
+        }, {
+          key: "renderLoading",
           value: function value() {
             var t = this;
             this.root && (document.getElementById("feedback-actions").innerHTML = '\n\t\t\t<button id="feedback-loading"><div class="feedback-loader"><div></div><div></div><div></div><div></div></div>Loading</button>\n\t\t', document.getElementById("feedback-close").addEventListener("click", function () {
-              t._renderButton();
+              t.closeModal();
             }));
           }
         }, {
-          key: "_renderSuccess",
+          key: "renderSuccess",
           value: function value() {
             var t = this;
 
             if (this.root) {
               var e = '\n\t\t\t<div class="feedback-btn-wrapper">\n\t\t\t\t<button id="feedback-btn" title="Give feedback">\n\t\t\t\t\t<span>'.concat(this.options.success, "</span>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t");
               this.root.innerHTML = e, setTimeout(function () {
-                t._renderButton();
+                t.renderButton();
               }, 3e3);
             }
           }
         }, {
-          key: "_renderFailed",
+          key: "renderFailed",
           value: function value() {
             var t = this;
 
             if (this.root) {
               var e = '\n\t\t\t<div class="feedback-wrapper">\n\t\t\t\t<div class="feedback-main">\n\t\t\t\t\t<div class="feedback-header">\n\t\t\t\t\t\t<p>'.concat(this.options.failedTitle, '</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="feedback-content">\n\t\t\t\t\t\t<p>').concat(this.options.failedMessage, '</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="feedback-close">\n\t\t\t\t\t<button id="feedback-close">\n\t\t\t\t\t\t<svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
               this.root.innerHTML = e, document.getElementById("feedback-close").addEventListener("click", function () {
-                t._renderButton();
+                t.closeModal();
               });
             }
-          }
-        }, {
-          key: "send",
-          value: function value(t, e, n, o) {
-            var i = this;
-
-            if (t && e) {
-              var a = {
-                id: this.options.id,
-                email: o,
-                feedbackType: t,
-                url: n,
-                message: e
-              };
-
-              this._renderLoading();
-
-              var r = new XMLHttpRequest();
-              r.open("POST", this.options.endpoint), r.setRequestHeader("Content-type", "application/json"), r.send(JSON.stringify(a)), r.onreadystatechange = function () {
-                if (4 === r.readyState) {
-                  if (200 === r.status) return i._renderSuccess();
-
-                  i._renderFailed();
-                }
-              };
-            } else if (!this.root) throw new Error("missing parameters");
-          }
-        }, {
-          key: "attach",
-          value: function value() {
-            var t = document.createElement("div");
-            t.id = "feedback-root", document.body.insertBefore(t, document.body.firstChild);
-            var e = document.createComment("feedback-js modal code");
-            document.body.insertBefore(e, document.body.firstChild), this.root = t, this._addStyle(), this._renderButton();
           }
         }, {
           key: "_addStyle",
@@ -304,10 +383,10 @@ var require;var require;!function (t) {
             var n = document.createElement("link");
             n.setAttribute("rel", "stylesheet"), n.setAttribute("type", "text/css"), n.setAttribute("href", "data:text/css;charset=UTF-8," + encodeURIComponent(t)), document.head.appendChild(n);
           }
-        }]) && o(e.prototype, n), a && o(e, a), t;
+        }]) && a(e.prototype, n), i && a(e, i), t;
       }();
 
-      n["default"] = a;
+      n["default"] = c;
     }, {}],
     2: [function (t, e, n) {
       "use strict";
@@ -336,8 +415,8 @@ var require;var require;!function (t) {
 
         for (var r in t) {
           if (Object.prototype.hasOwnProperty.call(t, r)) {
-            var d = i ? Object.getOwnPropertyDescriptor(t, r) : null;
-            d && (d.get || d.set) ? Object.defineProperty(n, r, d) : n[r] = t[r];
+            var c = i ? Object.getOwnPropertyDescriptor(t, r) : null;
+            c && (c.get || c.set) ? Object.defineProperty(n, r, c) : n[r] = t[r];
           }
         }
 
@@ -354,9 +433,28 @@ var require;var require;!function (t) {
       }
 
       var r = i["default"];
-      n["default"] = r, i.IS_BROWSER && function (t) {
-        t.Feedback = i["default"];
-      }(window);
+      n["default"] = r;
+      i.IS_BROWSER ? function () {
+        var t = document.querySelector("[data-feedback-opts]"),
+            e = document.querySelector("[data-feedback-endpoint]"),
+            n = document.querySelectorAll("[data-feedback-trigger]");
+        if (!t && !e && n.length < 1) window.Feedback = i["default"];else {
+          var o = t && t.getAttribute("data-feedback-opts") || "{}",
+              a = e && {
+            endpoint: e.getAttribute("data-feedback-endpoint")
+          } || {},
+              r = Object.assign({}, JSON.parse(o), a);
+          window.addEventListener("load", function () {
+            window.feedback = new i["default"](r);
+            var t = n.length < 1;
+            (t || window.feedback.options.forceShowButton) && window.feedback.renderButton(), t || n.forEach(function (t) {
+              t.addEventListener("click", function () {
+                window.feedback.renderModal();
+              });
+            });
+          });
+        }
+      }() : console.warn("[feedback-js] Detected environment without a `window` object");
     }, {
       "./feedback": 1
     }]
@@ -391,10 +489,7 @@ flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializers.add('justov
     var baseUrl = flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.forum.attribute('baseUrl') + '/feedback';
     var Contact = 'mailto:' + flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.forum.attribute('ContactMail');
     var options = {
-      id: 'feedback',
-      // id to identify the form on the backend
       endpoint: baseUrl,
-      // enpoint of your backend to handle the submission
       emailField: true,
       // show email input field, default: false
       btnTitle: 'Feedback',
@@ -403,8 +498,6 @@ flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializers.add('justov
       // text at the top
       contactText: 'Or send an email!',
       // text for other contact option
-      contactLink: Contact,
-      // link for other contact option
       typeMessage: 'What feedback do you have?',
       // message for selecting feedback type
       success: 'Thanks! 👊',
@@ -419,10 +512,24 @@ flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializers.add('justov
       // primary color
       background: '#fff',
       // background color
-      color: '#000' // font color
-
+      color: '#000',
+      // font color
+      types: {
+        general: {
+          text: 'General Feedback',
+          icon: '⚠️'
+        },
+        idea: {
+          text: 'I have an idea',
+          icon: '💡'
+        },
+        love: {
+          text: 'Send love',
+          icon: '💖'
+        }
+      }
     };
-    new _betahuhn_feedback_js__WEBPACK_IMPORTED_MODULE_3___default.a(options).attach();
+    new _betahuhn_feedback_js__WEBPACK_IMPORTED_MODULE_3___default.a(options).renderButton();
   });
 });
 

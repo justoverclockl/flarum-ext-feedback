@@ -964,10 +964,10 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@betahuhn/feedback-js@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.npmjs.org/@betahuhn/feedback-js/-/feedback-js-1.0.15.tgz"
-  integrity sha512-7T33UNqn8n30bM3D/s8PeASUhcNAFCvo9pdagbmnGtRQtAt6iUbNhUiYcODYYXYwVP6BX3R1JBkt/k2hPiaVCQ==
+"@betahuhn/feedback-js@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@betahuhn/feedback-js/-/feedback-js-1.1.0.tgz#5b9e220550f054fdc06aef9e9739e4d2fcda6eaf"
+  integrity sha512-qFKevKCU2JkJi+JXC090ZjzNcqb5gbxzLfpogjCcHL9q63ajYKuCtFCRR9kjxmGE42JzWvSwdL/EFheYjKaV3Q==
 
 "@polka/url@^1.0.0-next.15":
   version "1.0.0-next.15"
