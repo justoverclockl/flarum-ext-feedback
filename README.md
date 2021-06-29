@@ -4,6 +4,9 @@
 
 A [Flarum](http://flarum.org) extension. Add a feedback module to Flarum
 
+![ezgif-4-ccb0c17da97b](https://user-images.githubusercontent.com/79002016/123836058-90128d00-d909-11eb-9d44-2dea10e9ddb0.gif)
+
+
 ### Installation
 
 Install with composer:
