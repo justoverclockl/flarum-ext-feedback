@@ -8,6 +8,10 @@ justoverclock-feedback:
     position-help: Select bottom left or bottom right to display the feedback button
     right_label: Right
     left_label: Left
+    background-color: Widget background color
+    background-color-help: Provide a hex color code to use as the background color, ie '#fff'
+    font-color: Widget font color
+    font-color-help: Provide a hex color code to use as the font color, ie '#000'
   api:
     validation_error: You cannot send empty feedback
   forum:
