@@ -1,7 +1,13 @@
 justoverclock-feedback:
   admin:
-    contactmail: email address to send feedback to
+    contactmail: Email address to send feedback to
     contactdesc: This must be filled in to fully enable the feedback widget
+    collect-email: Display (optional) email address field to users
+    collect-email-help: When enabled, users are able to add their email address to the feedback
+    position: Widget position
+    position-help: Select bottom left or bottom right to display the feedback button
+    right_label: Right
+    left_label: Left
   api:
     validation_error: You cannot send empty feedback
   forum:
