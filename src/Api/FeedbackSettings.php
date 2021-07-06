@@ -3,8 +3,6 @@
 namespace Justoverclock\Feedback\Api;
 
 use Flarum\Api\Serializer\ForumSerializer;
-use Flarum\Foundation\Paths;
-use Flarum\Http\UrlGenerator;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Support\Arr;
 
@@ -15,15 +13,9 @@ class FeedbackSettings
      */
     protected $settings;
 
-    /**
-     * @var UrlGenerator
-     */
-    protected $url;
-
-    public function __construct(SettingsRepositoryInterface $settings, UrlGenerator $url)
+    public function __construct(SettingsRepositoryInterface $settings)
     {
         $this->settings = $settings;
-        $this->url = $url;
     }
     
     public function __invoke(ForumSerializer $serializer, $model, array $attributes): array

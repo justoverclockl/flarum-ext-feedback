@@ -11,6 +11,7 @@ use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Arr;
 use Justoverclock\Feedback\Api\Serializer\SubmitFeedbackSerializer;
+use Justoverclock\Feedback\Validator\FeedbackValidator;
 use Psr\Http\Message\ServerRequestInterface;
 use stdClass;
 use Tobscure\JsonApi\Document;
@@ -33,20 +34,24 @@ class SubmitFeedbackController extends AbstractCreateController
      * @var Mailer
      */
     protected $mailer;
+
+    /**
+     * @var FeedbackValidator
+     */
+    protected $validator;
     
-    public function __construct(SettingsRepositoryInterface $settings, Translator $translator, Mailer $mailer)
+    public function __construct(SettingsRepositoryInterface $settings, Translator $translator, Mailer $mailer, FeedbackValidator $validator)
     {
         $this->settings = $settings;
         $this->translator = $translator;
         $this->mailer = $mailer;
+        $this->validator = $validator;
     }
     
     public function data(ServerRequestInterface $request, Document $document)
     {
         $actor = RequestUtil::getActor($request);
         $data = $request->getParsedBody();
-
-        // TODO add validation
         
         $feedback = new stdClass();
         $feedback->id = 'feedback';
@@ -54,6 +59,8 @@ class SubmitFeedbackController extends AbstractCreateController
         $feedback->email = Arr::get($data, 'email');
         $feedback->message = Arr::get($data, 'message');
         $feedback->url = Arr::get($data, 'url');
+
+        $this->validator->assertValid(['message' => $feedback->message]);
 
         $this->sendEmail($feedback, $actor);
 

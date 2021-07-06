@@ -22,6 +22,11 @@
       "name": "Marco Colia",
       "email": "info@flarum.it",
       "role": "Developer"
+    },
+    {
+      "name": "IanM",
+      "homepage": "https://discuss.flarum.org/u/ianm",
+      "role": "Developer"
     }
   ],
   "autoload": {
@@ -34,7 +39,7 @@
       "title": "Feedback",
       "category": "feature",
       "icon": {
-        "name": "",
+        "name": "fas fa-comment-dots",
         "backgroundColor": "",
         "color": ""
       }

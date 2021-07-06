@@ -9,8 +9,8 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
         const opts = app.forum.attribute('feedback');
 
         if (!opts) {
-          console.warn('justoverclock/flarum-ext-feedback is not correctly configured!')
-          return; 
+            console.warn('justoverclock/flarum-ext-feedback is not correctly configured!');
+            return;
         }
 
         const options = {
@@ -25,7 +25,7 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             failedTitle: app.translator.trans('justoverclock-feedback.forum.feedback-widget.failed-title'), // title displayed on error
             failedMessage: app.translator.trans('justoverclock-feedback.forum.feedback-widget.failed-message'), // default error message if backend doesn't return one
             position: opts.position, // position of button left/right
-            primary: app.forum.attribute('themePrimaryColor'),//'rgb(53, 222, 118)', // primary color
+            primary: app.forum.attribute('themePrimaryColor'), //'rgb(53, 222, 118)', // primary color
             background: '#fff', // background color
             color: '#000', // font color
             types: {
