@@ -1,4 +1,27 @@
-flarum-ext-feedback:
+justoverclock-feedback:
   admin:
-    contactmail: Mail for manual feedback
-    contactdesc: This is used if the normal submission fail.
+    contactmail: email address to send feedback to
+    contactdesc: This must be filled in to fully enable the feedback widget
+  forum:
+    button-title: Feedback
+    feedback-widget:
+      title: Flarum Feedback
+      contact-text: Or send an email!
+      type-message: What feedback do you have?
+      success: Thanks!
+      failed-title: Oops, an error ocurred
+      failed-message: Please try again. If this keeps happening, try to send an email instead.
+      types:
+        general: General feedback
+        idea: I have an idea
+        love: Send love
+    email:
+      guest: an anonymous user
+      subject: Feedback
+      body: |
+       New {type} feedback from {user}!
+
+       {message}
+
+       Email: {email}
+       Url: {url}

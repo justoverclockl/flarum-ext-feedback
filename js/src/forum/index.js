@@ -4,40 +4,53 @@ import IndexPage from 'flarum/components/IndexPage';
 import Feedback from '@betahuhn/feedback-js';
 
 app.initializers.add('justoverclock/flarum-ext-feedback', () => {
-  extend(IndexPage.prototype, 'oninit', function (vdom) {
+    extend(IndexPage.prototype, 'oninit', function (vnode) {
+        const apiUrl = app.forum.attribute('apiUrl') + '/feedback';
+        const opts = app.forum.attribute('feedback');
 
-    const baseUrl = app.forum.attribute('baseUrl') + '/feedback';
-    const Contact = 'mailto:' + app.forum.attribute('ContactMail');
-
-    const options = {
-      endpoint: baseUrl,
-      emailField: true, // show email input field, default: false
-      btnTitle: 'Feedback', // title of button
-      title: 'Flarum Feedback', // text at the top
-      contactText: 'Or send an email!', // text for other contact option
-      typeMessage: 'What feedback do you have?', // message for selecting feedback type
-      success: 'Thanks! 👊', // message displayed on successfull submission
-      failedTitle: 'Oops, an error ocurred!', // title displayed on error
-      failedMessage: 'Please try again. If this keeps happening, try to send an email instead.', // default error message if backend doesn't return one
-      position: 'right', // position of button left/right
-      primary: 'rgb(53, 222, 118)', // primary color
-      background: '#fff', // background color
-      color: '#000', // font color
-      types: {
-        general: {
-          text: 'General Feedback',
-          icon: '⚠️'
-        },
-        idea: {
-          text: 'I have an idea',
-          icon: '💡'
-        },
-        love: {
-          text: 'Send love',
-          icon: '💖'
+        if (!opts) {
+          console.warn('justoverclock/flarum-ext-feedback is not correctly configured!')
+          return; 
         }
-      }
-    }
-    new Feedback(options).renderButton()
-  })
-})
+
+        const options = {
+            endpoint: apiUrl,
+            events: true,
+            emailField: opts.email, // show email input field, default: false
+            btnTitle: app.translator.trans('justoverclock-feedback.forum.button-title'), // title of button
+            title: app.translator.trans('justoverclock-feedback.forum.feedback-widget.title'), // text at the top
+            contactText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.contact-text'), // text for other contact option
+            typeMessage: app.translator.trans('justoverclock-feedback.forum.feedback-widget.type-message'), // message for selecting feedback type
+            success: app.translator.trans('justoverclock-feedback.forum.feedback-widget.success'), // message displayed on successfull submission
+            failedTitle: app.translator.trans('justoverclock-feedback.forum.feedback-widget.failed-title'), // title displayed on error
+            failedMessage: app.translator.trans('justoverclock-feedback.forum.feedback-widget.failed-message'), // default error message if backend doesn't return one
+            position: opts.position, // position of button left/right
+            primary: app.forum.attribute('themePrimaryColor'),//'rgb(53, 222, 118)', // primary color
+            background: '#fff', // background color
+            color: '#000', // font color
+            types: {
+                general: {
+                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.general'),
+                    icon: '⚠️',
+                },
+                idea: {
+                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.idea'),
+                    icon: '💡',
+                },
+                love: {
+                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.love'),
+                    icon: '💖',
+                },
+            },
+        };
+        new Feedback(options).renderButton();
+
+        window.addEventListener('feedback-submit', (event) => {
+            app.request({
+                method: 'POST',
+                url: apiUrl,
+                body: event.detail,
+            });
+        });
+    });
+});
