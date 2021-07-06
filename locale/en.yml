@@ -14,6 +14,9 @@ justoverclock-feedback:
     button-title: Feedback
     feedback-widget:
       title: Flarum Feedback
+      placeholder: Enter your feedback here
+      submit: Submit
+      back: Back
       contact-text: Or send an email!
       type-message: What feedback do you have?
       success: Thanks!

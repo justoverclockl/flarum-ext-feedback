@@ -25,6 +25,19 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             type: 'select',
             label: app.translator.trans('justoverclock-feedback.admin.position'),
             help: app.translator.trans('justoverclock-feedback.admin.position-help'),
-            default: 'right',
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.backgroundColor',
+            name: 'BackgroundColor',
+            type: 'string',
+            label: app.translator.trans('justoverclock-feedback.admin.background-color'),
+            help: app.translator.trans('justoverclock-feedback.admin.background-color-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.fontColor',
+            name: 'FontColor',
+            type: 'string',
+            label: app.translator.trans('justoverclock-feedback.admin.font-color'),
+            help: app.translator.trans('justoverclock-feedback.admin.font-color-help'),
         });
 });
