@@ -40,8 +40,8 @@
       "category": "feature",
       "icon": {
         "name": "fas fa-comment-dots",
-        "backgroundColor": "",
-        "color": ""
+        "backgroundColor": "green",
+        "color": "white"
       }
     },
     "flagrow": {
