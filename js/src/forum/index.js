@@ -2,9 +2,10 @@ import app from 'flarum/forum/app';
 import { extend } from 'flarum/common/extend';
 import IndexPage from 'flarum/components/IndexPage';
 import Feedback from '@betahuhn/feedback-js';
+import Page from "flarum/common/components/Page";
 
 app.initializers.add('justoverclock/flarum-ext-feedback', () => {
-    extend(IndexPage.prototype, 'oninit', function (vnode) {
+    extend(Page.prototype, 'oninit', function () {
         const apiUrl = app.forum.attribute('apiUrl') + '/feedback';
         const opts = app.forum.attribute('feedback');
 
