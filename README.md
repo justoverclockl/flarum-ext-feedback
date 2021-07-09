@@ -1,6 +1,6 @@
 # Feedback
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/justoverclock/flarum-ext-feedback.svg)](https://packagist.org/packages/justoverclock/flarum-ext-feedback) [![Total Downloads](https://img.shields.io/packagist/dt/justoverclock/flarum-ext-feedback.svg)](https://packagist.org/packages/justoverclock/flarum-ext-feedback)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://poser.pugx.org/justoverclock/flarum-ext-feedback/v)](https://packagist.org/packages/justoverclock/flarum-ext-feedback) [![Total Downloads](https://poser.pugx.org/justoverclock/flarum-ext-feedback/downloads)](https://packagist.org/packages/justoverclock/flarum-ext-feedback)
 
 A [Flarum](http://flarum.org) extension. Add a feedback module to Flarum
 
@@ -26,5 +26,4 @@ php flarum cache:clear
 ### Links
 
 - [Packagist](https://packagist.org/packages/justoverclock/flarum-ext-feedback)
-- [GitHub](https://github.com/justoverclock/flarum-ext-feedback)
-- [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
+- [GitHub](https://github.com/justoverclockl/flarum-ext-feedback)
