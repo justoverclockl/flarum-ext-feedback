@@ -19,9 +19,9 @@
   },
   "authors": [
     {
-      "name": "Marco Colia",
-      "email": "info@flarum.it",
-      "role": "Developer"
+        "name": "Marco Colia",
+        "homepage": "https://discuss.flarum.org/u/Justoverclock",
+        "role": "Developer"
     },
     {
       "name": "IanM",
