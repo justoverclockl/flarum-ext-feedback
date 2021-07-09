@@ -39,8 +39,8 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
                     icon: '💡',
                 },
                 love: {
-                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.love'),
-                    icon: '💖',
+                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.bug'),
+                    icon: '🐛',
                 },
             },
         };

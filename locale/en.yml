@@ -23,13 +23,13 @@ justoverclock-feedback:
       back: Back
       contact-text: Or send an email!
       type-message: What feedback do you have?
-      success: Thanks!
+      success: Thanks!👊
       failed-title: Oops, an error ocurred
       failed-message: Please try again. If this keeps happening, try to send an email instead.
       types:
         general: General feedback
         idea: I have an idea
-        love: Send love
+        bug: Bug Report
     email:
       guest: an anonymous user
       subject: Feedback

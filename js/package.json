@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@betahuhn/feedback-js": "^2.0.0",
+    "flarum": "^0.1.0-beta.16",
     "flarum-webpack-config": "^1.0.0",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.0.7"
