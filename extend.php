@@ -30,4 +30,7 @@ return [
 
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(Api\FeedbackSettings::class),
+
+    (new Extend\Settings)
+        ->serializeToForum('boxTitle', 'justoverclock-feedback.boxTitle'),
 ];

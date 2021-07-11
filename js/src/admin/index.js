@@ -39,5 +39,12 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             type: 'string',
             label: app.translator.trans('justoverclock-feedback.admin.font-color'),
             help: app.translator.trans('justoverclock-feedback.admin.font-color-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.boxTitle',
+            name: 'boxTitle',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.box-title'),
+            help: app.translator.trans('justoverclock-feedback.admin.box-title-help'),
         });
 });

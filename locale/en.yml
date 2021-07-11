@@ -12,6 +12,8 @@ justoverclock-feedback:
     background-color-help: Provide a hex color code to use as the background color, ie '#fff'
     font-color: Widget font color
     font-color-help: Provide a hex color code to use as the font color, ie '#000'
+    box-title: Box Title
+    box-title-help: Set the title of the popup feedback widget (old "Flarum feedback")
   api:
     validation_error: You cannot send empty feedback
   forum:
@@ -26,6 +28,7 @@ justoverclock-feedback:
       success: Thanks!👊
       failed-title: Oops, an error ocurred
       failed-message: Please try again. If this keeps happening, try to send an email instead.
+      email-field-placeholder: Email (optional field)
       types:
         general: General feedback
         idea: I have an idea

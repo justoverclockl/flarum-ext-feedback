@@ -18,7 +18,7 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             events: true,
             emailField: opts.email, // show email input field, default: false
             btnTitle: app.translator.trans('justoverclock-feedback.forum.button-title'), // title of button
-            title: app.translator.trans('justoverclock-feedback.forum.feedback-widget.title'), // text at the top
+            title: app.forum.attribute('boxTitle') || "Flarum Feedback", // text at the top
             inputPlaceholder: app.translator.trans('justoverclock-feedback.forum.feedback-widget.placeholder'),
             submitText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.submit'), //'Submit', // text for submit button
             backText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.back'), //'Back', // text for back button
