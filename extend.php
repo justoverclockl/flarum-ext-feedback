@@ -33,4 +33,22 @@ return [
 
     (new Extend\Settings)
         ->serializeToForum('boxTitle', 'justoverclock-feedback.boxTitle'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType1', 'justoverclock-feedback.feedbackType1'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType1-icon', 'justoverclock-feedback.feedbackType1-icon'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType2', 'justoverclock-feedback.feedbackType2'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType2-icon', 'justoverclock-feedback.feedbackType2-icon'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType3', 'justoverclock-feedback.feedbackType3'),
+
+    (new Extend\Settings)
+        ->serializeToForum('feedbackType3-icon', 'justoverclock-feedback.feedbackType3-icon'),
 ];

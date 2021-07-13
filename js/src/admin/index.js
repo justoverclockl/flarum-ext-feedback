@@ -46,5 +46,47 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             type: 'text',
             label: app.translator.trans('justoverclock-feedback.admin.box-title'),
             help: app.translator.trans('justoverclock-feedback.admin.box-title-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType1',
+            name: 'feedbackType1',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback1-title'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback1-title-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType1-icon',
+            name: 'feedbackType1-icon',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback1-icon'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback1-icon-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType2',
+            name: 'feedbackType2',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback2-title'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback2-title-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType2-icon',
+            name: 'feedbackType2-icon',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback2-icon'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback2-icon-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType3',
+            name: 'feedbackType3',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback3-title'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback3-title-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-feedback.feedbackType3-icon',
+            name: 'feedbackType3-icon',
+            type: 'text',
+            label: app.translator.trans('justoverclock-feedback.admin.feedback3-icon'),
+            help: app.translator.trans('justoverclock-feedback.admin.feedback3-icon-help'),
         });
 });

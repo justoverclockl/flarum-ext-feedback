@@ -20,6 +20,7 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             btnTitle: app.translator.trans('justoverclock-feedback.forum.button-title'), // title of button
             title: app.forum.attribute('boxTitle') || "Flarum Feedback", // text at the top
             inputPlaceholder: app.translator.trans('justoverclock-feedback.forum.feedback-widget.placeholder'),
+            emailPlaceholder: app.translator.trans('justoverclock-feedback.forum.feedback-widget.email-placeholder'),
             submitText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.submit'), //'Submit', // text for submit button
             backText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.back'), //'Back', // text for back button
             contactText: app.translator.trans('justoverclock-feedback.forum.feedback-widget.contact-text'), // text for other contact option
@@ -31,16 +32,16 @@ app.initializers.add('justoverclock/flarum-ext-feedback', () => {
             color: opts.fontColor, // font color
             types: {
                 general: {
-                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.general'),
-                    icon: '⚠️',
+                    text: app.forum.attribute('feedbackType1') || "Type 1",
+                    icon: app.forum.attribute('feedbackType1-icon') || "⚠",
                 },
                 idea: {
-                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.idea'),
-                    icon: '💡',
+                    text: app.forum.attribute('feedbackType2') || "Type 2",
+                    icon: app.forum.attribute('feedbackType2-icon') || "💡",
                 },
                 bug: {
-                    text: app.translator.trans('justoverclock-feedback.forum.feedback-widget.types.bug'),
-                    icon: '🐛',
+                    text: app.forum.attribute('feedbackType3') || "Type 3",
+                    icon: app.forum.attribute('feedbackType3-icon') || "🐛",
                 },
             },
         };

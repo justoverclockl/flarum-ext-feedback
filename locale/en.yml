@@ -1,6 +1,18 @@
 justoverclock-feedback:
   admin:
     contactmail: Email address to send feedback to
+    feedback1-title: Feedback type 1
+    feedback1-title-help: Customize here the name of your "feedback type"
+    feedback1-icon: Icon for Feedback type 1
+    feedback1-icon-help: Put a text icon like "⚠, ☎, ✎" - Find more icons on https://coolsymbol.com/
+    feedback2-title: Feedback type 2
+    feedback2-title-help: Customize here the name of your "feedback type 2"
+    feedback2-icon: Icon for Feedback type 2
+    feedback2-icon-help: Put a text icon like "⚠, ☎, ✎" - Find more icons on https://coolsymbol.com/
+    feedback3-title: Feedback type 3
+    feedback3-title-help: Customize here the name of your "feedback type 3"
+    feedback3-icon: Icon for Feedback type 3
+    feedback3-icon-help: Put a text icon like "⚠, ☎, ✎" - Find more icons on https://coolsymbol.com/
     contactdesc: This must be filled in to fully enable the feedback widget
     collect-email: Display (optional) email address field to users
     collect-email-help: When enabled, users are able to add their email address to the feedback
@@ -21,6 +33,7 @@ justoverclock-feedback:
     feedback-widget:
       title: Flarum Feedback
       placeholder: Enter your feedback here
+      email-placeholder: Email (optional)
       submit: Submit
       back: Back
       contact-text: Or send an email!

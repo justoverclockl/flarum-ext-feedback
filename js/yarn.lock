@@ -16,7 +16,7 @@
 
 "@babel/core@^7.14.3":
   version "7.14.6"
-  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.14.6.tgz#e0814ec1a950032ff16c13a2721de39a8416fcab"
+  resolved "https://registry.npmjs.org/@babel/core/-/core-7.14.6.tgz"
   integrity sha512-gJnOEWSqTk96qG5BoIrl5bVtc23DCycmIePPYnamY9RboYdI4nFy5vAQMSl81O5K/W0sLDWfGysnOECC+KUUCA==
   dependencies:
     "@babel/code-frame" "^7.14.5"
@@ -744,7 +744,7 @@
 
 "@babel/plugin-transform-runtime@^7.14.3":
   version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.14.5.tgz#30491dad49c6059f8f8fa5ee8896a0089e987523"
+  resolved "https://registry.npmjs.org/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.14.5.tgz"
   integrity sha512-fPMBhh1AV8ZyneiCIA+wYYUH1arzlXR1UMcApjvchDhfKxhy2r2lReJv8uHEyihi4IFIGlr1Pdx7S5fkESDQsg==
   dependencies:
     "@babel/helper-module-imports" "^7.14.5"
@@ -816,7 +816,7 @@
 
 "@babel/preset-env@^7.14.2":
   version "7.14.7"
-  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.14.7.tgz#5c70b22d4c2d893b03d8c886a5c17422502b932a"
+  resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.14.7.tgz"
   integrity sha512-itOGqCKLsSUl0Y+1nSfhbuuOlTs0MJk2Iv7iSH+XT/mR8U1zRLO7NjWlYXB47yhK4J/7j+HYty/EhFZDYKa/VA==
   dependencies:
     "@babel/compat-data" "^7.14.7"
@@ -964,10 +964,10 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@betahuhn/feedback-js@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@betahuhn/feedback-js/-/feedback-js-2.0.0.tgz#8816ceb37edc08f4353d97378eeb8ff77b506a1c"
-  integrity sha512-0Hh3c+F1GDk2eBnztrW58TXS7e9HuVooG0DovwAkwRFMEh/bedL79b+j31KG+tISRsdwWGAjPlO0z47AaHdWVg==
+"@betahuhn/feedback-js@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@betahuhn/feedback-js/-/feedback-js-2.1.0.tgz#5a5b0f6766e6ac156f1ce7dc80672c1d87161a4f"
+  integrity sha512-8A72MI2dn34ePaW6K0EjWu0ZOWWIE5Yh+Uro/vqZ1zTN6de/Og5zpfaSpAwnxaGv0m7ctbQuK6v3vQ4Tkmc8qg==
 
 "@polka/url@^1.0.0-next.15":
   version "1.0.0-next.15"
@@ -1135,9 +1135,9 @@
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
 acorn-walk@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.1.0.tgz"
-  integrity sha512-mjmzmv12YIG/G8JQdQuz2MUDShEJ6teYpT5bmWA4q7iwoGen8xtt3twF3OvzIUl+Q06aWIjvnwQUKvQ6TtMRjg==
+  version "8.1.1"
+  resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.1.1.tgz"
+  integrity sha512-FbJdceMlPHEAWJOILDk1fXD8lnTlEIWFkqtfk+MvmL5q/qlHfN7GEHcsFZWt/Tea9jRNPWUZG4G976nqAAmU9w==
 
 acorn@^6.4.1:
   version "6.4.2"
@@ -1545,9 +1545,9 @@ camelcase@^5.0.0:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001219:
-  version "1.0.30001240"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001240.tgz"
-  integrity sha512-nb8mDzfMdxBDN7ZKx8chWafAdBp5DAAlpWvNyUGe5tcDWd838zpzDN3Rah9cjCqhfOKkrvx40G2SDtP0qiWX/w==
+  version "1.0.30001242"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001242.tgz"
+  integrity sha512-KvNuZ/duufelMB3w2xtf9gEWCSxJwUgoxOx5b6ScLXC4kPc9xsczUVCPrQU26j5kOsHM4pSUL54tAZt5THQKug==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -1744,9 +1744,9 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js-compat@^3.14.0, core-js-compat@^3.15.0:
-  version "3.15.1"
-  resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.15.1.tgz"
-  integrity sha512-xGhzYMX6y7oEGQGAJmP2TmtBLvR4nZmRGEcFa3ubHOq5YEp51gGN9AovVa0AoujGZIq+Wm6dISiYyGNfdflYww==
+  version "3.15.2"
+  resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.15.2.tgz"
+  integrity sha512-Wp+BJVvwopjI+A1EFqm2dwUmWYXrvucmtIB2LgXn/Rb+gWPKYxtmb4GKHGKG/KGF1eK9jfjzT38DITbTOCX/SQ==
   dependencies:
     browserslist "^4.16.6"
     semver "7.0.0"
@@ -1828,9 +1828,9 @@ debug@^2.2.0, debug@^2.3.3:
     ms "2.0.0"
 
 debug@^4.1.0, debug@^4.1.1:
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
-  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
+  version "4.3.2"
+  resolved "https://registry.npmjs.org/debug/-/debug-4.3.2.tgz"
+  integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
   dependencies:
     ms "2.1.2"
 
@@ -1916,9 +1916,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     stream-shift "^1.0.0"
 
 electron-to-chromium@^1.3.723:
-  version "1.3.759"
-  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.759.tgz"
-  integrity sha512-nM76xH0t2FBH5iMEZDVc3S/qbdKjGH7TThezxC8k1Q7w7WHvIAyJh8lAe2UamGfdRqBTjHfPDn82LJ0ksCiB9g==
+  version "1.3.768"
+  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.768.tgz"
+  integrity sha512-I4UMZHhVSK2pwt8jOIxTi3GIuc41NkddtKT/hpuxp9GO5UWJgDKTBa4TACppbVAuKtKbMK6BhQZvT5tFF1bcNA==
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -2150,7 +2150,7 @@ findup-sync@^3.0.0:
 
 flarum-webpack-config@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/flarum-webpack-config/-/flarum-webpack-config-1.0.0.tgz#daf76829d1a71d1af61b5ab6c98e6c61aa6f1b1a"
+  resolved "https://registry.npmjs.org/flarum-webpack-config/-/flarum-webpack-config-1.0.0.tgz"
   integrity sha512-T+olIRaIVetPJMP8xlbMnp7tzT/d/ZWI6Mr7twRBdsKbKO7dpKS2+fjnKL6QqNYgOLElT/TWrRSbTp7EiL1yXA==
   dependencies:
     "@babel/core" "^7.14.3"
@@ -2169,7 +2169,7 @@ flarum-webpack-config@^1.0.0:
 
 flarum@^0.1.0-beta.16:
   version "0.1.0-beta.16"
-  resolved "https://registry.yarnpkg.com/flarum/-/flarum-0.1.0-beta.16.tgz#6571adfd6632ea25794ab5270a9bd8ac2f38e1d3"
+  resolved "https://registry.npmjs.org/flarum/-/flarum-0.1.0-beta.16.tgz"
   integrity sha512-uovm+6J8TO35dfbTSRtHRH6tz71W4dnEDfB63NOKHIhOz8oRh65qyWpXtlBOjv9f1cFMkMcjGHbWetb5lAIEnQ==
 
 flush-write-stream@^1.0.0:
@@ -3192,7 +3192,7 @@ posix-character-classes@^0.1.0:
 
 prettier@2.3.1:
   version "2.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-2.3.1.tgz"
   integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 
 process-nextick-args@~2.0.0:
@@ -3859,7 +3859,7 @@ typedarray@^0.0.6:
 
 typescript@^4.3.2:
   version "4.3.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-4.3.5.tgz"
   integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
@@ -3996,7 +3996,7 @@ watchpack@^1.7.4:
 
 webpack-bundle-analyzer@^4.4.2:
   version "4.4.2"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.4.2.tgz#39898cf6200178240910d629705f0f3493f7d666"
+  resolved "https://registry.npmjs.org/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.4.2.tgz"
   integrity sha512-PIagMYhlEzFfhMYOzs5gFT55DkUdkyrJi/SxJp8EF3YMWhS+T9vvs2EoTetpk5qb6VsCq02eXTlRDOydRhDFAQ==
   dependencies:
     acorn "^8.0.4"
@@ -4097,9 +4097,9 @@ wrappy@1:
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
 ws@^7.3.1:
-  version "7.5.0"
-  resolved "https://registry.npmjs.org/ws/-/ws-7.5.0.tgz"
-  integrity sha512-6ezXvzOZupqKj4jUqbQ9tXuJNo+BR2gU8fFRk3XCP3e0G6WT414u5ELe6Y0vtp7kmSJ3F7YWObSNr1ESsgi4vw==
+  version "7.5.2"
+  resolved "https://registry.npmjs.org/ws/-/ws-7.5.2.tgz"
+  integrity sha512-lkF7AWRicoB9mAgjeKbGqVUekLnSNO4VjKVnuPHpQeOxZOErX6BPXwJk70nFslRCEEA8EVW7ZjKwXaP9N+1sKQ==
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
