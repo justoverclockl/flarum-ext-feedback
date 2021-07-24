@@ -9,7 +9,7 @@
   "support": {
     "issues": "https://github.com/justoverclockl/flarum-ext-feedback/issues",
     "source": "https://github.com/justoverclockl/flarum-ext-feedback",
-    "forum": "https://discuss.flarum.org/d/XXX"
+    "forum": "https://discuss.flarum.org/d/28089-feedback"
   },
   "require": {
     "flarum/core": "^1.0.0"
